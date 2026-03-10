@@ -36,4 +36,4 @@ Bludit will be available at `http://localhost:8000`. The theme is bind-mounted f
 
 ## Screenshot
 
-![screenshot](https://raw.githubusercontent.com/marekrost/bludit-theme-echo/master/echo/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/marekrost/bludit-theme-echo/main/echo/screenshot.png)
