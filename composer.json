@@ -1,0 +1,6 @@
+{
+    "type": "project",
+    "require": {
+        "twbs/bootstrap": "5.3.*"
+    }
+}

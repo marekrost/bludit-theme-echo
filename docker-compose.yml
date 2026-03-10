@@ -1,0 +1,26 @@
+services:
+  composer:
+    image: composer:2
+    volumes:
+      - .:/app
+    command: >
+      sh -c "composer install --no-interaction &&
+             rm -rf echo/vendor/bootstrap &&
+             mkdir -p echo/vendor/bootstrap &&
+             cp vendor/twbs/bootstrap/dist/css/bootstrap.min.css echo/vendor/bootstrap/ &&
+             cp vendor/twbs/bootstrap/dist/css/bootstrap.min.css.map echo/vendor/bootstrap/ &&
+             cp vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js echo/vendor/bootstrap/ &&
+             cp vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js.map echo/vendor/bootstrap/"
+  bludit:
+    image: bludit/docker:latest
+    depends_on:
+      composer:
+        condition: service_completed_successfully
+    ports:
+      - "8000:80"
+    volumes:
+      - ./echo:/usr/share/nginx/html/bl-themes/echo:ro
+      - bl-content:/usr/share/nginx/html/bl-content
+
+volumes:
+  bl-content:

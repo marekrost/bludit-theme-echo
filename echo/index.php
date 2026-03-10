@@ -13,7 +13,7 @@
     <div class="row">
 
       <!-- Left Sidebar -->
-      <div id="site-sidebar" class="col-md-4 col-lg-3 pr-lg-5">
+      <div id="site-sidebar" class="col-md-4 col-lg-3 pe-lg-5">
         <?php include(THEME_DIR_PHP.'sidebar.php'); ?>
       </div>
 
@@ -35,14 +35,8 @@
     </div>
   </div>
 
-  <!-- Javascript -->
-  <?php
-    // Include Jquery file from Bludit Core
-    echo Theme::jquery();
-
-    // Include javascript Bootstrap file from Bludit Core
-    echo Theme::jsBootstrap();
-  ?>
+  <!-- Bootstrap 5 Bundle (includes Popper) -->
+  <script src="<?php echo HTML_PATH_THEME ?>vendor/bootstrap/bootstrap.bundle.min.js"></script>
 
   <!-- Load Bludit Plugins: Site Body End -->
   <?php Theme::plugins('siteBodyEnd'); ?>
