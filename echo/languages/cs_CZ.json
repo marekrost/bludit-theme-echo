@@ -3,5 +3,9 @@
   {
     "name": "Echo",
     "description": "Bludit verze pro původní Nibbleblog šablonu Echo od Diaga Najara."
-  }
+  },
+  "first": "První",
+  "last": "Poslední",
+  "previous": "Předchozí",
+  "next": "Další"
 }

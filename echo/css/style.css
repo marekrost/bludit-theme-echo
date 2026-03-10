@@ -11,13 +11,16 @@
 
   /* Links */
   --bs-link-color: #3466B1;
+  --bs-link-color-rgb: 52, 102, 177;
   --bs-link-hover-color: #343da2;
+  --bs-link-hover-color-rgb: 52, 61, 162;
 
   /* Headings */
   --bs-heading-color: #727f94;
 
   /* Theme-specific */
-  --echo-heading-font-weight: 300;
+  --echo-heading-font-weight-larger: 400;
+  --echo-heading-font-weight-smaller: 300;
   --echo-heading-hover-color: #8493ab;
   --echo-sidebar-bg: #e4e7ec;
   --echo-footer-color: #a6aeb7;
@@ -27,12 +30,30 @@
   --echo-pagination-bg: #757e8e;
 }
 
+/* Links */
+a {
+  text-decoration: none;
+}
+
+a:active,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+
 /* Headings */
 h1,
 h2,
-h3,
-h4 {
-  font-weight: var(--echo-heading-font-weight);
+h3 {
+  font-weight: var(--echo-heading-font-weight-larger);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: var(--echo-heading-font-weight-smaller);
 }
 
 h1 a,
@@ -115,12 +136,16 @@ table th {
 /* Navbar */
 .navbar-brand {
   font-size: 2em;
+  font-weight: 400;
   color: var(--bs-heading-color);
   margin: 0;
 }
 
 .navbar-toggler {
   font-size: 1rem;
+  padding: .25rem .75rem;
+  border-radius: .25rem;
+  align-self: center;
   background: var(--echo-navbar-toggler-bg);
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -140,7 +165,6 @@ article.page {
 article header h1,
 article header h2 {
   font-size: 2em;
-  font-weight: 400;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -152,12 +176,12 @@ article header h2 {
   --bs-pagination-border-color: var(--echo-pagination-bg);
   --bs-pagination-hover-bg: #858e9e;
   --bs-pagination-hover-color: #fff;
-  --bs-pagination-hover-border-color: #fff;
+  --bs-pagination-hover-border-color: #858e9e;
   --bs-pagination-disabled-bg: var(--echo-pagination-bg);
-  --bs-pagination-disabled-color: #aaa;
+  --bs-pagination-disabled-color: #ccc;
   --bs-pagination-disabled-border-color: var(--echo-pagination-bg);
   --bs-pagination-active-bg: #58606f;
-  --bs-pagination-active-border-color: #dee2e6;
+  --bs-pagination-active-border-color: #58606f;
 }
 
 /* Plugins */
@@ -238,6 +262,7 @@ div.plugin-tags li {
 
   .day {
     font-size: 2em;
+    line-height: 1;
   }
 }
 

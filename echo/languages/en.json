@@ -3,5 +3,9 @@
   {
     "name": "Echo",
     "description": "Bludit version of original Echo theme for Nibbleblog by Diego Najar."
-  }
+  },
+  "first": "First",
+  "last": "Last",
+  "previous": "Previous",
+  "next": "Next"
 }
