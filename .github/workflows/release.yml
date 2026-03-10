@@ -14,6 +14,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: |
+          composer install --no-interaction --no-dev
+          mkdir -p echo/vendor/bootstrap
+          cp vendor/twbs/bootstrap/dist/css/bootstrap.min.css echo/vendor/bootstrap/
+          cp vendor/twbs/bootstrap/dist/css/bootstrap.min.css.map echo/vendor/bootstrap/
+          cp vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js echo/vendor/bootstrap/
+          cp vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js.map echo/vendor/bootstrap/
+
       - name: Package theme
         run: zip -r echo-${GITHUB_REF_NAME}.zip echo/
 

@@ -26,13 +26,19 @@
     </header>
 
     <!-- Post body -->
-    <?php echo $page->contentBreak(); ?>
-
-    <!-- "Read more" button -->
     <?php if ($page->readMore()): ?>
-    <footer class="mt-3">
-      <a href="<?php echo $page->permalink(); ?>"><?php echo $L->get('Read more'); ?> &raquo;</a>
-    </footer>
+      <?php
+        $break_content = $page->contentBreak();
+        // Close any unclosed tags to prevent broken HTML from swallowing the rest of the page
+        $doc = new DOMDocument();
+        @$doc->loadHTML('<?xml encoding="UTF-8"><div>' . $break_content . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        echo $doc->saveHTML($doc->getElementsByTagName('div')->item(0));
+      ?>
+      <footer class="mt-3">
+        <a href="<?php echo $page->permalink(); ?>"><?php echo $L->get('Read more'); ?> &raquo;</a>
+      </footer>
+    <?php else: ?>
+      <?php echo $page->content(); ?>
     <?php endif ?>
 
     <!-- Load Bludit Plugins: Page End -->
